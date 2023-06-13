@@ -1,13 +1,10 @@
-#!/usr/bin/env python
-# pylint: disable=unused-argument, wrong-import-position
-# This program is dedicated to the public domain under the CC0 license.
+#!/usr/bin/env python3
 import argparse
 from pathlib import Path
 import requests
 import urllib.parse
 
-
-PREFIX = 'how to use in linux CLI '
+TEMPLATE = 'how to {} in Linux'
 
 
 def get_file_content(token_path: Path) -> str:
@@ -36,18 +33,16 @@ def get_response(query_text: str, api_key: str):
 
 def get_parser():
     parser = argparse.ArgumentParser('You CLI tool to get requests to you.')
-    parser.add_argument("--betterapi_key_path", default='betterapi', help="Path to betterapi API key")
     parser.add_argument('strings', nargs='+', type=str)
     return parser
-
-
 
 
 def main() -> None:
     """Start the CLI."""
     args = get_parser().parse_args()
-    betterapi_key = get_file_content(Path(args.betterapi_key_path))
-    print(get_response(PREFIX + ' '.join(args.strings), api_key=betterapi_key))
+    config_path = Path.home() / '.config' / 'you' / 'betterapi'
+    betterapi_key = get_file_content(config_path)
+    print(get_response(TEMPLATE.format(' '.join(args.strings)), api_key=betterapi_key))
 
 
 if __name__ == "__main__":
