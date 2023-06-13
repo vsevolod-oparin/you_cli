@@ -17,12 +17,12 @@ sudo ln -s $(pwd)/main.py /usr/local/bin/howto
 
 Get the key on [betterAPI](https://api.betterapi.net/) for YouChat
 ```bash
-$> mkdir -p ~/.config/you
-$> echo {YOUR_KEY} > ~/.config/you/betterapi
+mkdir -p ~/.config/you
+echo {YOUR_KEY} > ~/.config/you/betterapi
 ```
 
 ### Test it
 
 ```bash
-$> howto get last n lines of the file 
+howto get last n lines of the file 
 ```
