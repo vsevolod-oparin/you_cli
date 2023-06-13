@@ -6,9 +6,11 @@ Simple tool to get help right in linux shell with YouChat bot.
 
 ### Install the tool
 
+In bash, cd to the directory with the repo.
+
 ```bash
-$> pip3 install -r requirements.txt
-$> sudo ln -s $pwd/main.py /usr/local/bin/howto 
+pip3 install -r requirements.txt
+sudo ln -s $(pwd)/main.py /usr/local/bin/howto 
 ``` 
 
 ### Set an API key
